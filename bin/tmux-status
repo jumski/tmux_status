@@ -1,0 +1,30 @@
+#!/home/jumski/.rvm/bin/current_ruby
+
+current_path = File.expand_path(File.dirname(__FILE__))
+require File.join(current_path, '../lib/tmux_status')
+
+include TmuxStatus
+
+opts = { bg: 25, fg: 199, bold: true }
+line = Concatenator.new([
+  'hax'
+  # MocpStatus.new(opts),
+  # Transfer.new(opts),
+  # Battery.new(opts)
+], opts)
+
+puts line
+
+# status = Concatenator.new([
+#   Segment.new({ string: 'siemano',         { bg: 25, fg: 199, bold: true  }),
+#   Segment.new({ string: 'omg zomgozord !', bg: 85, fg: 127, bold: false })
+# ], { bg: 25, fg: 199, bold: true  }
+# )
+
+# status = TmuxStatus.new do
+#   music_player title_lenght: 20, bg: :red
+#   segment :date_time, format: '%H:%I'
+#   segment :transfer, interface: :ppp0, unit: :mb
+#   segment :battery, interface: :ppp0, unit: :mb, bold: true
+# end
+

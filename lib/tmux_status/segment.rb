@@ -1,5 +1,5 @@
 
-class TmuxStatus
+module TmuxStatus
   class Segment
     def initialize(options = {})
       @options = options
@@ -23,7 +23,7 @@ class TmuxStatus
     end
 
     def output
-      raise UnimplementedError.new
+      @options[:string]
     end
   end
 end

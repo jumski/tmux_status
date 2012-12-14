@@ -1,5 +1,5 @@
 
-class TmuxStatus
+module TmuxStatus
   class MocpStatus < Segment
     def mocp
       @mocp ||= Object.new

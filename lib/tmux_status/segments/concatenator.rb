@@ -1,8 +1,8 @@
 
-class TmuxStatus
+module TmuxStatus
   class Concatenator < Segment
-    def initialize(segments)
-      @segments = segments
+    def initialize(segments, options)
+      @segments, @options = segments, options
     end
 
     def output

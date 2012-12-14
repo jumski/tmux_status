@@ -1,4 +1,4 @@
-class TmuxStatus
+module TmuxStatus
   class UnimplementedError < StandardError
   end
 end
