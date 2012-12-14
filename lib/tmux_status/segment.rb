@@ -21,5 +21,9 @@ class TmuxStatus
     def cleared_output
       output.gsub(/\r\n/, ' ').gsub(/[\n\r]/, ' ').strip
     end
+
+    def output
+      raise UnimplementedError.new
+    end
   end
 end

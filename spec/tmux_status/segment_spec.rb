@@ -33,4 +33,10 @@ describe TmuxStatus::Segment do
       expect(subject.cleared_output).to eq('this string is awesome')
     end
   end
+
+  describe '#output' do
+    it 'raises UnimplementedError' do
+      expect { subject.output }.to raise_error(TmuxStatus::UnimplementedError)
+    end
+  end
 end
