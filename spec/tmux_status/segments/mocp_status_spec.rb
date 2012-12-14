@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe TmuxStatus::MocpPlayer do
+describe TmuxStatus::MocpStatus do
   subject { described_class.new(options) }
   let(:options) do
     {
@@ -9,9 +9,9 @@ describe TmuxStatus::MocpPlayer do
     }
   end
 
-  it 'inherits from Segment' do
-    expect(subject).to be_a(TmuxStatus::Segment)
-  end
+  it { should be_a(TmuxStatus::Segment) }
+
+  its(:mocp) { should be_a TmuxStatus::MocpStatus }
 
   describe '#output' do
     context 'when mocp is stopped' do

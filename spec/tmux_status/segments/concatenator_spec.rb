@@ -4,9 +4,7 @@ describe TmuxStatus::Concatenator do
   subject { described_class.new(segments) }
   let(:segments) { [] }
 
-  it 'inherits from TmuxStatus::Segment' do
-    expect(subject).to be_a(TmuxStatus::Segment)
-  end
+  it { should be_a(TmuxStatus::Segment) }
 
   describe '#output' do
     let(:segments) do

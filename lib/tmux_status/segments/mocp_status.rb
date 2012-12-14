@@ -1,6 +1,6 @@
 
 class TmuxStatus
-  class MocpPlayer < Segment
+  class MocpStatus < Segment
     def mocp
       @mocp ||= Object.new
     end
