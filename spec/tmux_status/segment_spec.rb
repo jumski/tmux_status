@@ -1,25 +1,36 @@
 require 'spec_helper'
 
 describe TmuxStatus::Segment do
-  subject { described_class.new }
+  subject { described_class.new(options) }
+  let(:options) { {} }
 
   describe '#to_s' do
-    it 'outputs #output' do
-      subject.stubs(output: 'string')
+    it 'concatenates #modes with #cleared_output' do
+      subject.stubs(cleared_output: '[output]', modes: '[modes]')
 
-      expect(subject.to_s).to eq(subject.output)
-    end
-
-    it 'changes any newlines to spacec in the #output' do
-      subject.stubs(output: "this\rstring\nis\r\nawesome")
-
-      expect(subject.to_s).to eq('this string is awesome')
-    end
-
-    it 'strip whitespaces #output' do
-      subject.stubs(output: ' this string is awesome ')
-
-      expect(subject.to_s).to eq('this string is awesome')
+      expect(subject.to_s).to eq('[modes][output]')
     end
   end
+
+  describe '#modes' do
+    let(:options) { {bg: 1, fg: 2, bold: false} }
+
+    it 'outputs Tmux modes string containing various options' do
+      expect(subject.modes).to eq('#[bg=colour1,fg=colour2,bold=false]')
+    end
+  end
+
+  # describe '#cleared_output' do
+  #   it 'changes any newlines to spaces in the #output' do
+  #     subject.stubs(output: "this\rstring\nis\r\nawesome")
+
+  #     expect(subject.to_s).to eq('this string is awesome')
+  #   end
+
+  #   it 'strip whitespaces #output' do
+  #     subject.stubs(output: ' this string is awesome ')
+
+  #     expect(subject.to_s).to eq('this string is awesome')
+  #   end
+  # end
 end
