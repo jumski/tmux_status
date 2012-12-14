@@ -1,7 +1,7 @@
 current_dir = File.dirname(__FILE__)
 
 require 'rspec'
-require 'mocha'
+require 'mocha/api'
 require 'pry'
 require File.join(current_dir, '../lib/tmux_status')
 

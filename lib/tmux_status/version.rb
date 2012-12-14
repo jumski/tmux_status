@@ -1,3 +1,3 @@
-module TmuxStatus
+class TmuxStatus
   VERSION = "0.0.1"
 end
