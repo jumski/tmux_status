@@ -1,6 +1,6 @@
 
 class TmuxStatus
-  class Concatenator
+  class Concatenator < Segment
     def initialize(segments)
       @segments = segments
     end
