@@ -1,24 +1,22 @@
 # TmuxStatus
 
-TODO: Write a gem description
+Object-oriented way to build TMUX status line in Ruby
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'tmux_status'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+Install gem
 
     $ gem install tmux_status
 
 ## Usage
 
-TODO: Write usage instructions here
+Add this to your ~/.tmux.conf`
+
+    set -g status-utf8 on
+    set -g status-justify left
+    set -g status-interval 2
+    set-option -g status-right-length 120
+    set-option -g status-right "#(tmux-status mocp)"
 
 ## Contributing
 
