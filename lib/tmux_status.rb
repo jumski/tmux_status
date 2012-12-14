@@ -1,5 +1,7 @@
-require "tmux_status/version"
+$: << File.expand_path(File.dirname(__FILE__))
 
-module TmuxStatus
-  # Your code goes here...
-end
+class TmuxStatus; end
+
+require "tmux_status/version"
+require "tmux_status/segment"
+
