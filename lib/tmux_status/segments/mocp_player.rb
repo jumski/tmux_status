@@ -13,16 +13,8 @@ class TmuxStatus
       "#{symbol}#{title}"
     end
 
-    # def status
-    #   case mocp.status
-    #   when :playing then @options[:playing_symbol]
-    #   when :paused  then @options[:paused_symbol]
-    #   when :stopped then @options[:stopped_symbol]
-    #   end
-    # end
-
-    # def title
-    #   return if mocp.status == :stopped
-    # end
+    def title
+      mocp.full_title[0..15]
+    end
   end
 end

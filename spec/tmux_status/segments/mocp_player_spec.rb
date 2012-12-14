@@ -42,4 +42,26 @@ describe TmuxStatus::MocpPlayer do
       end
     end
   end
+
+  describe '#title' do
+    context 'when mocp title is longer than 16 characters' do
+      before do
+        subject.mocp.stubs(full_title: 'Black Sun Empire - Arrakis')
+      end
+
+      it 'truncates mocp full title to 16 characters' do
+        expect(subject.title).to eq('Black Sun Empire')
+      end
+    end
+
+    context 'when mocp title is equal or shorter than 16 characters' do
+      before do
+        subject.mocp.stubs(full_title: 'Rido - Exoplanet')
+      end
+
+      it 'shows full title' do
+        expect(subject.title).to eq('Rido - Exoplanet')
+      end
+    end
+  end
 end
