@@ -20,17 +20,17 @@ describe TmuxStatus::Segment do
     end
   end
 
-  # describe '#cleared_output' do
-  #   it 'changes any newlines to spaces in the #output' do
-  #     subject.stubs(output: "this\rstring\nis\r\nawesome")
+  describe '#cleared_output' do
+    it 'changes any newlines to spaces in the #output' do
+      subject.stubs(output: "this\rstring\nis\r\nawesome")
 
-  #     expect(subject.to_s).to eq('this string is awesome')
-  #   end
+      expect(subject.cleared_output).to eq('this string is awesome')
+    end
 
-  #   it 'strip whitespaces #output' do
-  #     subject.stubs(output: ' this string is awesome ')
+    it 'strip whitespaces #output' do
+      subject.stubs(output: ' this string is awesome ')
 
-  #     expect(subject.to_s).to eq('this string is awesome')
-  #   end
-  # end
+      expect(subject.cleared_output).to eq('this string is awesome')
+    end
+  end
 end
