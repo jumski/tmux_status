@@ -3,6 +3,7 @@ current_dir = File.dirname(__FILE__)
 require 'rspec'
 require 'mocha/api'
 require 'pry'
+require 'timecop'
 require File.join(current_dir, '../lib/tmux_status')
 
 Dir[File.join(current_dir, 'spec/support/**/*.rb')].each do |path|

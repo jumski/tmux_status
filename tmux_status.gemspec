@@ -22,4 +22,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'mocha'
   gem.add_development_dependency 'fivemat'
   gem.add_development_dependency 'guard-shell'
+  gem.add_development_dependency 'timecop'
 end
