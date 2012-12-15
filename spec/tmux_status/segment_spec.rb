@@ -19,7 +19,7 @@ describe TmuxStatus::Segment do
     let(:options) { {bg: 1, fg: 2, bold: false} }
 
     it 'outputs Tmux modes string containing various options' do
-      expect(subject.modes).to eq('#[bg=colour1,fg=colour2,bold=false]')
+      expect(subject.modes).to eq('#[bg=colour1]#[fg=colour2]#[bold=false]')
     end
   end
 

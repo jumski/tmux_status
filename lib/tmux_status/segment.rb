@@ -10,11 +10,10 @@ module TmuxStatus
     end
 
     def modes
-      modes = '#['
-      modes << "bg=colour#{@options[:bg]},"
-      modes << "fg=colour#{@options[:fg]},"
-      modes << "bold=#{@options[:bold]}"
-      modes << ']'
+      modes = ''
+      modes << mode(:bg)
+      modes << mode(:fg)
+      modes << mode(:bold)
       modes
     end
 
@@ -25,5 +24,16 @@ module TmuxStatus
     def output
       @options[:string]
     end
+
+    private
+      def mode(key)
+        if [:bg, :fg].include? key
+          prefix = 'colour'
+        else
+          prefix = nil
+        end
+
+        "#[#{key}=#{prefix}#{@options[key]}]"
+      end
   end
 end
