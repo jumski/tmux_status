@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe TmuxStatus::Concatenator do
+describe TmuxStatus::Container do
   subject { described_class.new(segments) }
   let(:segments) { [] }
 

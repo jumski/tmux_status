@@ -3,4 +3,4 @@
 current_path = File.expand_path(File.dirname(__FILE__))
 require File.join(current_path, '../lib/tmux_status')
 
-TmuxStatus.run(ARGV)
+puts TmuxStatus.run(ARGV)

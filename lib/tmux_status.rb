@@ -3,18 +3,18 @@ $: << File.expand_path(File.dirname(__FILE__))
 module TmuxStatus
   module_function
 
-  def run(args)
-    opts = { bg: 16, fg: 251, bold: true }
+  def line_from_string(args)
+    string = args[0].split(',')
 
-    segments = args[0].split(',').map do |name|
-      klass_name = name.split('_').map(&:capitalize).join
+    opts = { bg: 16, fg: 251, bold: true }
+    segments = string.map do |segment_name|
+      klass_name = segment_name.split('_').map(&:capitalize).join
       klass = "TmuxStatus::Segments::#{klass_name}".constantize
 
       klass.new(opts)
     end
 
-    puts Concatenator.new(segments)
-    exit 0
+    Container.new(segments)
   end
 end
 
@@ -24,7 +24,7 @@ require 'tmux_status/wrappers/mocp'
 require 'tmux_status/wrappers/ifconfig'
 require 'tmux_status/unimplemented_error'
 require 'tmux_status/segment'
-require 'tmux_status/segments/concatenator'
+require 'tmux_status/segments/container'
 require 'tmux_status/segments/mocp_status'
 require 'tmux_status/segments/transfer'
 
