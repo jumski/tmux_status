@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 describe TmuxStatus::Segments::Transfer do
-  let(:ifconfig) { stub(downloaded: 23, uploaded: 5) }
+  let(:ifconfig) do
+    stub(downloaded: 1024*1024*23, uploaded: 1024*1024*5)
+  end
   before do
     subject.stubs(ifconfig: ifconfig)
   end
@@ -10,6 +12,8 @@ describe TmuxStatus::Segments::Transfer do
 
   describe '#output' do
     it do
+      downloaded = ifconfig.downloaded.to_i / 1024 / 1024
+      uploaded   = ifconfig.uploaded.to_i / 1024 / 1024
       expected_output = "#{subject.modes}#{ifconfig.downloaded}/#{ifconfig.uploaded}"
       expect(subject.output).to eq(expected_output)
     end

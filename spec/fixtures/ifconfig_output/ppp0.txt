@@ -5,4 +5,4 @@ iface     Link encap:Ethernet  HWaddr ac:72:89:e9:b9:e3
           RX packets:216239 errors:0 dropped:0 overruns:0 frame:0
           TX packets:140914 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000
-          RX bytes:23 (159.4 MB)  TX bytes:5 (10.1 MB)
+          RX bytes:<%= downloaded_bytes %> (159.4 MB)  TX bytes:<%= uploaded_bytes %> (10.1 MB)
