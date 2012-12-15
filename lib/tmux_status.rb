@@ -1,6 +1,21 @@
 $: << File.expand_path(File.dirname(__FILE__))
 
 module TmuxStatus
+  module_function
+
+  def run(args)
+    opts = { bg: 16, fg: 251, bold: true }
+
+    segments = args[0].split(',').map do |name|
+      klass_name = name.split('_').map(&:capitalize).join
+      klass = "TmuxStatus::Segments::#{klass_name}".constantize
+
+      klass.new(opts)
+    end
+
+    puts Concatenator.new(segments)
+    exit 0
+  end
 end
 
 require 'tmux_status/version'

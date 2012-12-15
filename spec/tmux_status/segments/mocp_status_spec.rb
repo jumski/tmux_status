@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe TmuxStatus::MocpStatus do
+describe TmuxStatus::Segments::MocpStatus do
   subject { described_class.new(options) }
   let(:options) do
     {

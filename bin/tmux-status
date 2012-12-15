@@ -3,27 +3,4 @@
 current_path = File.expand_path(File.dirname(__FILE__))
 require File.join(current_path, '../lib/tmux_status')
 
-include TmuxStatus
-
-opts = { bg: 16, fg: 251, bold: true }
-line = Concatenator.new([
-  MocpStatus.new(opts),
-  Segments::Transfer.new(opts),
-  # Battery.new(opts)
-])
-
-puts line
-
-# status = Concatenator.new([
-#   Segment.new({ string: 'siemano',         { bg: 25, fg: 199, bold: true  }),
-#   Segment.new({ string: 'omg zomgozord !', bg: 85, fg: 127, bold: false })
-# ], { bg: 25, fg: 199, bold: true  }
-# )
-
-# status = TmuxStatus.new do
-#   music_player title_lenght: 20, bg: :red
-#   segment :date_time, format: '%H:%I'
-#   segment :transfer, interface: :ppp0, unit: :mb
-#   segment :battery, interface: :ppp0, unit: :mb, bold: true
-# end
-
+TmuxStatus.run(ARGV)
