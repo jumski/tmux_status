@@ -6,9 +6,7 @@ module TmuxStatus
     end
 
     def output
-      @segments.inject('') do |output, segment|
-        output << segment.to_s
-      end
+      @segments.join
     end
 
     def modes; '' end
