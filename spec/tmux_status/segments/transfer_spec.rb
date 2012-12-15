@@ -9,6 +9,9 @@ describe TmuxStatus::Segments::Transfer do
   it { should be_a TmuxStatus::Segment }
 
   describe '#output' do
-    it { should eq("#{subject.modes}#{ifconfig.downloaded}/#{ifconfig.uploaded}")}
+    it do
+      expected_output = "#{subject.modes}#{ifconfig.downloaded}/#{ifconfig.uploaded}"
+      expect(subject.output).to eq(expected_output)
+    end
   end
 end
