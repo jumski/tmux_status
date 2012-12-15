@@ -1,8 +1,11 @@
 
 module TmuxStatus
   class Concatenator < Segment
-    def initialize(segments, options)
-      @segments, @options = segments, options
+    DEFAULT_OPTIONS = { bg: 20, fg: 100, bold: false }
+
+    def initialize(segments, options = {})
+      @segments = segments
+      @options = DEFAULT_OPTIONS.dup.merge(options)
     end
 
     def output

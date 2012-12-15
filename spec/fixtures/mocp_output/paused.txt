@@ -1,0 +1,14 @@
+State: PAUSE
+File: /home/jumski/music/bart/27010-Vaccine - the sounds of ASC & Covert Operations 07.06.mp3
+Title:
+Artist:
+SongTitle: some title
+Album:
+TotalTime: 62:39
+TimeLeft: 62:10
+TotalSec: 3759
+CurrentTime: 00:29
+CurrentSec: 29
+Bitrate: 160kbps
+AvgBitrate: 160kbps
+Rate: 44kHz

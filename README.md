@@ -1,6 +1,6 @@
 # TmuxStatus
 
-Object-oriented way to build TMUX status line in Ruby
+Object-oriented way to build Tmux status string in Ruby
 
 ## Installation
 

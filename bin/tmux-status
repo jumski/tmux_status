@@ -7,11 +7,10 @@ include TmuxStatus
 
 opts = { bg: 25, fg: 199, bold: true }
 line = Concatenator.new([
-  'hax'
-  # MocpStatus.new(opts),
+  MocpStatus.new(opts),
   # Transfer.new(opts),
   # Battery.new(opts)
-], opts)
+])
 
 puts line
 

@@ -2,19 +2,19 @@
 module TmuxStatus
   class MocpStatus < Segment
     def mocp
-      @mocp ||= Object.new
+      @mocp ||= Wrappers::Mocp.new
     end
 
     def output
-      return @options[:stopped_symbol] if mocp.status == :stopped
+      return @options[:stopped_symbol] if mocp.state == :stopped
 
-      symbol = @options["#{mocp.status}_symbol".to_sym]
+      symbol = @options["#{mocp.state}_symbol".to_sym]
 
       "#{symbol}#{title}"
     end
 
     def title
-      mocp.full_title[0..15]
+      mocp.title[0..15]
     end
   end
 end

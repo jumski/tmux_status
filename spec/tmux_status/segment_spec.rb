@@ -2,7 +2,10 @@ require 'spec_helper'
 
 describe TmuxStatus::Segment do
   subject { described_class.new(options) }
-  let(:options) { {} }
+  let(:string)  { 'some string' }
+  let(:options) { {string: string} }
+
+  its(:output) { should == string }
 
   describe '#to_s' do
     it 'concatenates #modes with #cleared_output' do
@@ -31,12 +34,6 @@ describe TmuxStatus::Segment do
       subject.stubs(output: ' this string is awesome ')
 
       expect(subject.cleared_output).to eq('this string is awesome')
-    end
-  end
-
-  describe '#output' do
-    it 'raises UnimplementedError' do
-      expect { subject.output }.to raise_error(TmuxStatus::UnimplementedError)
     end
   end
 end
