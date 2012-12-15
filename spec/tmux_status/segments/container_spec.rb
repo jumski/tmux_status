@@ -16,4 +16,6 @@ describe TmuxStatus::Container do
       expect(subject.output).to eq('segment 1segment 2')
     end
   end
+
+  its(:segments) { should eq(segments) }
 end

@@ -1,6 +1,8 @@
 
 module TmuxStatus
   class Container < Segment
+    attr_reader :segments
+
     def initialize(segments)
       @segments = segments
     end
