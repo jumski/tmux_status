@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe TmuxStatus::Wrappers::Mocp do
-  before { subject.stubs(mocp_info: mocp_info) }
-  let(:mocp_info) do
-    File.read("spec/fixtures/mocp_output/#{state}.txt")
+  before { subject.stubs(output: output) }
+  let(:output) do
+    File.read("spec/fixtures/mocp_#{state}.txt")
   end
 
   context 'when mocp is stopped' do
@@ -27,5 +27,5 @@ describe TmuxStatus::Wrappers::Mocp do
     its(:state) { should eq(:playing) }
   end
 
-  xit '#mocp_info shells out to "mocp -i"'
+  xit '#output shells out to "mocp -i"'
 end

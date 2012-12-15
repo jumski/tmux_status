@@ -16,7 +16,7 @@ Add this to your ~/.tmux.conf`
     set -g status-justify left
     set -g status-interval 2
     set-option -g status-right-length 120
-    set-option -g status-right "#(tmux-status mocp)"
+    set-option -g status-right "#(tmux-status music_player,transfer)"
 
 ## Contributing
 

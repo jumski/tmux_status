@@ -5,11 +5,11 @@ module TmuxStatus
       def title
         return if state == :stopped
 
-        mocp_info.scan(/SongTitle: (.*)/).flatten.first
+        output.scan(/SongTitle: (.*)/).flatten.first
       end
 
       def state
-        case mocp_info.scan(/State: (.*)/).flatten.first
+        case output.scan(/State: (.*)/).flatten.first
         when 'STOP'
          return :stopped
         when 'PAUSE'
@@ -19,7 +19,7 @@ module TmuxStatus
         end
       end
 
-      def mocp_info
+      def output
         %x[ mocp -i ]
       end
     end

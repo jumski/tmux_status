@@ -35,5 +35,11 @@ describe TmuxStatus::Segment do
 
       expect(subject.cleared_output).to eq('this string is awesome')
     end
+
+    it 'does not raise any errors if #output is nil' do
+      subject.stubs(output: nil)
+
+      expect { subject.cleared_output }.to_not raise_error
+    end
   end
 end

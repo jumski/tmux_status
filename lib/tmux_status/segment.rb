@@ -18,7 +18,7 @@ module TmuxStatus
     end
 
     def cleared_output
-      output.gsub(/\r\n/, ' ').gsub(/[\n\r]/, ' ').strip
+      output.to_s.gsub(/\r\n/, ' ').gsub(/[\n\r]/, ' ').strip
     end
 
     def output

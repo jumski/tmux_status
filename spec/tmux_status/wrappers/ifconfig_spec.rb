@@ -4,7 +4,7 @@ require 'erb'
 describe TmuxStatus::Wrappers::Ifconfig do
   before do
     # load fixture output for ifconfig
-    string = File.read("spec/fixtures/ifconfig_output/#{fixture}.txt")
+    string = File.read("spec/fixtures/ifconfig_iface_#{iface_status}.txt")
     template = ERB.new(string)
     output = template.result(binding)
 
@@ -12,7 +12,7 @@ describe TmuxStatus::Wrappers::Ifconfig do
   end
 
   context 'when ppp0 interface is found' do
-    let(:fixture) { :ppp0 }
+    let(:iface_status) { :found }
 
     let(:downloaded_bytes) { 1024 * 1024 * 23 }
     let(:uploaded_bytes)   { 1024 * 1024 * 5 }
@@ -23,7 +23,7 @@ describe TmuxStatus::Wrappers::Ifconfig do
   end
 
   context 'when ppp0 interface is not found' do
-    let(:fixture) { :not_found }
+    let(:iface_status) { :not_found }
 
     it { should_not be_up }
     its(:downloaded) { should be_nil }
