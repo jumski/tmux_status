@@ -30,7 +30,7 @@ describe TmuxStatus::Segment do
       expect(subject.cleared_output).to eq('this string is awesome')
     end
 
-    it 'strip whitespaces #output' do
+    it 'strip whitespaces from #output' do
       subject.stubs(output: ' this string is awesome ')
 
       expect(subject.cleared_output).to eq('this string is awesome')

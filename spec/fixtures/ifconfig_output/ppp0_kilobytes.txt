@@ -1,0 +1,8 @@
+iface     Link encap:Ethernet  HWaddr ac:72:89:e9:b9:e3
+          inet addr:192.168.1.235  Bcast:192.168.1.255  Mask:255.255.255.0
+          inet6 addr: fe80::ae72:89ff:fee9:b9e3/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:216239 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:140914 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:23 (159.4 MB)  TX bytes:5 (10.1 MB)
