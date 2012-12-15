@@ -10,4 +10,5 @@ require 'tmux_status/unimplemented_error'
 require 'tmux_status/segment'
 require 'tmux_status/segments/concatenator'
 require 'tmux_status/segments/mocp_status'
+require 'tmux_status/segments/transfer'
 
