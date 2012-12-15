@@ -7,6 +7,8 @@ module TmuxStatus
       end
 
       def output
+        return unless ifconfig.up?
+
         "#{modes}#{ifconfig.downloaded}/#{ifconfig.uploaded}"
       end
     end

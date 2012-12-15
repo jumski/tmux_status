@@ -2,19 +2,28 @@
 module TmuxStatus
   module Wrappers
     class Ifconfig
-      DOWNLOADED = /RX bytes:(\d+)/
-      UPLOADED   = /TX bytes:(\d+)/
+      DOWNLOADED_BYTES = /RX bytes:(\d+)/
+      UPLOADED_BYTES   = /TX bytes:(\d+)/
+      IS_DOWN_MARKER   = 'Device not found'
 
       def downloaded
-        extract(DOWNLOADED).to_i
+        return unless up?
+
+        extract(DOWNLOADED_BYTES).to_i
       end
 
       def uploaded
-        extract(UPLOADED).to_i
+        return unless up?
+
+        extract(UPLOADED_BYTES).to_i
+      end
+
+      def up?
+        ! ifconfig.include?(IS_DOWN_MARKER)
       end
 
       def ifconfig
-        %x[ ifconfig ppp0 ]
+        %x[ ifconfig ppp0 2>&1 ]
       end
 
       private

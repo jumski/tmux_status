@@ -8,7 +8,7 @@ include TmuxStatus
 opts = { bg: 16, fg: 251, bold: true }
 line = Concatenator.new([
   MocpStatus.new(opts),
-  # Transfer.new(opts),
+  Segments::Transfer.new(opts),
   # Battery.new(opts)
 ])
 
