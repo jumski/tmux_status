@@ -3,10 +3,10 @@ require 'date'
 module TmuxStatus
   module Segments
     class DateTime < Segment
-      DEFUALT_OPTIONS = { format: '%H:%M %d-%m-%Y' }
+      DEFAULT_OPTIONS = { bg: 77, fg: 88, bold: false, format: '%H:%M %d-%m-%Y' }
 
       def initialize(options = {})
-        @options = DEFUALT_OPTIONS.dup.merge(options)
+        @options = DEFAULT_OPTIONS.dup.merge(options)
       end
 
       def output
