@@ -1,3 +1,6 @@
+# require 'simplecov'
+# SimpleCov.start
+
 current_dir = File.dirname(__FILE__)
 
 require 'rspec'
