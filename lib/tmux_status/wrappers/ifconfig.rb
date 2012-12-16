@@ -23,7 +23,7 @@ module TmuxStatus
       end
 
       def ifconfig
-        %x[ ifconfig ppp0 2>&1 ]
+        @output ||= %x[ ifconfig ppp0 2>&1 ]
       end
 
       private

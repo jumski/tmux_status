@@ -7,9 +7,9 @@ module TmuxStatus
       end
 
       def output
-        return @options[:stopped_symbol] if wrapper.state == :stopped
-
         symbol = @options["#{wrapper.state}_symbol".to_sym]
+
+        return symbol if wrapper.state == :stopped
 
         "#{symbol}#{title}"
       end

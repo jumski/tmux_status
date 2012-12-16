@@ -20,7 +20,7 @@ module TmuxStatus
       end
 
       def output
-        %x[ mocp -i ]
+        @output ||= %x[ mocp -i ]
       end
     end
   end
