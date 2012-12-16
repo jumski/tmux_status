@@ -6,7 +6,7 @@ describe TmuxStatus do
       TmuxStatus.line_from_string(['transfer,music_player'])
     end
 
-    it { should be_a TmuxStatus::Container }
+    it { should be_a TmuxStatus::Segments::Container }
 
     it 'creates segments' do
       transfer, music_player = subject.segments

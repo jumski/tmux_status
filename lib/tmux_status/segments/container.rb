@@ -1,16 +1,18 @@
 
 module TmuxStatus
-  class Container < Segment
-    attr_reader :segments
+  module Segments
+    class Container < Segment
+      attr_reader :segments
 
-    def initialize(segments)
-      @segments = segments
+      def initialize(segments)
+        @segments = segments
+      end
+
+      def output
+        @segments.join
+      end
+
+      def modes; '' end
     end
-
-    def output
-      @segments.join
-    end
-
-    def modes; '' end
   end
 end

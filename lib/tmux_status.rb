@@ -14,7 +14,7 @@ module TmuxStatus
       klass.new(opts)
     end
 
-    Container.new(segments)
+    Segments::Container.new(segments)
   end
 end
 
