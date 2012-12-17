@@ -4,12 +4,15 @@ module TmuxStatus
     class Container < Segment
       attr_reader :segments
 
-      def initialize(segments)
+      DEFAULT_OPTIONS = {}
+
+      def initialize(segments, options = {})
         @segments = segments
+        @options = DEFAULT_OPTIONS.dup.merge(options)
       end
 
       def output
-        @segments.join
+        @segments.join(@options[:separator])
       end
 
       def modes; '' end

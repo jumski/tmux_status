@@ -1,19 +1,25 @@
 require 'spec_helper'
 
 describe TmuxStatus::Segments::Container do
-  subject { described_class.new(segments) }
+  subject { described_class.new(segments, options) }
   let(:segments) { [] }
+  let(:options)  { {} }
 
   it { should be_a(TmuxStatus::Segment) }
 
   describe '#output' do
     let(:segments) do
-      [ stub('Segment', to_s: 'segment 1'),
-        stub('Segment', to_s: 'segment 2') ]
+      [ stub('Segment', to_s: '[segment 1]'),
+        stub('Segment', to_s: '[segment 2]') ]
     end
 
-    it 'concatenates string values of provided segments' do
-      expect(subject.output).to eq('segment 1segment 2')
+    its(:output) { should eq('[segment 1][segment 2]') }
+
+    context 'when separator option provided' do
+      let(:separator) { 'X' }
+      let(:options) { {separator: separator} }
+
+      its(:output) { should eq('[segment 1]X[segment 2]') }
     end
   end
 

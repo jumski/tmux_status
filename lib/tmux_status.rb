@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 $: << File.expand_path(File.dirname(__FILE__))
 
 module TmuxStatus
@@ -14,7 +16,7 @@ module TmuxStatus
       klass.new(opts)
     end
 
-    Segments::Container.new(segments)
+    Segments::Container.new(segments, separator: ' ⮁ ')
   end
 end
 
