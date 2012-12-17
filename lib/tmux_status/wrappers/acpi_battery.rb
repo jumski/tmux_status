@@ -9,7 +9,7 @@ module TmuxStatus
       end
 
       def charged?
-        output.include? 'Charged'
+        output.include? 'Full'
       end
 
       def charging?
