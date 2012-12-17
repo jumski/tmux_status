@@ -3,7 +3,6 @@ require 'erb'
 
 describe TmuxStatus::Wrappers::Ifconfig do
   before do
-    # load fixture output for ifconfig
     string = File.read("spec/fixtures/ifconfig_iface_#{iface_status}.txt")
     template = ERB.new(string)
     output = template.result(binding)
