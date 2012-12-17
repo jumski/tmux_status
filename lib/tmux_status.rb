@@ -30,4 +30,5 @@ require 'tmux_status/segments/container'
 require 'tmux_status/segments/music_player'
 require 'tmux_status/segments/transfer'
 require 'tmux_status/segments/date_time'
+require 'tmux_status/segments/battery'
 
