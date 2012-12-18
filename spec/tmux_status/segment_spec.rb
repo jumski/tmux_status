@@ -3,7 +3,7 @@ require 'spec_helper'
 describe TmuxStatus::Segment do
   subject { described_class.new(options) }
   let(:string)  { 'some string' }
-  let(:options) { {string: string} }
+  let(:options) { {string: string, bg: 1, fg: 2, bold: false} }
 
   its(:output) { should == string }
 
@@ -16,12 +16,13 @@ describe TmuxStatus::Segment do
   end
 
   describe '#modes' do
-    let(:options) { {bg: 1, fg: 2, bold: false} }
-
     it 'outputs Tmux modes string containing various options' do
       expect(subject.modes).to eq('#[bg=colour1]#[fg=colour2]#[bold=false]')
     end
   end
+
+  its(:bg) { should eq(1) }
+  its(:fg) { should eq(2) }
 
   describe '#cleared_output' do
     it 'changes any newlines to spaces in the #output' do

@@ -14,7 +14,7 @@ module TmuxStatus
       klass.new(opts)
     end
 
-    Segments::Container.new(segments, separator: ' ⮁ ')
+    Segments::DecoratorContainer.new(segments, separator: '⮀')
   end
 end
 
@@ -26,6 +26,8 @@ require 'tmux_status/wrappers/acpi_battery'
 require 'tmux_status/unimplemented_error'
 require 'tmux_status/segment'
 require 'tmux_status/segments/container'
+require 'tmux_status/segments/decorator_container'
+require 'tmux_status/segments/glue'
 require 'tmux_status/segments/music_player'
 require 'tmux_status/segments/transfer'
 require 'tmux_status/segments/date_time'

@@ -17,6 +17,9 @@ module TmuxStatus
       modes
     end
 
+    def bg; @options[:bg] end
+    def fg; @options[:fg] end
+
     def cleared_output
       output.to_s.gsub(/\r\n/, ' ').gsub(/[\n\r]/, ' ').strip
     end
