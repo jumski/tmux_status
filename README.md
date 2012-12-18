@@ -8,6 +8,12 @@ Install gem
 
     $ gem install tmux_status
 
+## Requirements
+
+- ruby 1.9
+- ifconfig if you want to use Transfer wrapper (available on any linux machine)
+- acpi if you want to use Battery wrapper (`sudo apt-get install acpi`)
+
 ## Usage
 
 Add this to your ~/.tmux.conf`
@@ -16,7 +22,7 @@ Add this to your ~/.tmux.conf`
     set -g status-justify left
     set -g status-interval 2
     set-option -g status-right-length 120
-    set-option -g status-right "#(tmux-status music_player,transfer)"
+    set-option -g status-right "#(tmux-status music_player,date_time,transfer,battery)"
 
 ## Contributing
 
