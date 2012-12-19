@@ -8,8 +8,10 @@ module TmuxStatus
 
       def output
         return unless ifconfig.up?
+        downloaded = ifconfig.downloaded.to_i / 1024 / 1024
+        uploaded   = ifconfig.uploaded.to_i / 1024 / 1024
 
-        "#{modes}#{ifconfig.downloaded}/#{ifconfig.uploaded}"
+        "#{modes}#{downloaded}/#{uploaded}"
       end
     end
   end

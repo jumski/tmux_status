@@ -18,7 +18,7 @@ describe TmuxStatus::Segments::Transfer do
         downloaded = ifconfig.downloaded.to_i / 1024 / 1024
         uploaded   = ifconfig.uploaded.to_i / 1024 / 1024
 
-        expected_output = "#{subject.modes}#{ifconfig.downloaded}/#{ifconfig.uploaded}"
+        expected_output = "#{subject.modes}#{downloaded}/#{uploaded}"
 
         expect(subject.output).to eq(expected_output)
       end
