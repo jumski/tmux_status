@@ -7,7 +7,17 @@ module TmuxStatus
       end
 
       def to_s
-        "#[bg=colour#{@last.bg}]#[fg=colour#{@first.bg}]⮀"
+        if @first.bg == @last.bg
+          separator = '⮁'
+          bg = @last.bg
+          fg = @first.fg
+        else
+          separator = '⮀'
+          bg = @last.bg
+          fg = @first.bg
+        end
+
+        " #[bg=colour#{bg}]#[fg=colour#{fg}]#{separator} "
       end
     end
   end

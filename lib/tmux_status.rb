@@ -14,7 +14,7 @@ module TmuxStatus
       klass.new(opts)
     end
 
-    Segments::DecoratorContainer.new(segments, separator: '⮀')
+    Segments::DecoratorContainer.new(segments)
   end
 end
 

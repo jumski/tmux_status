@@ -3,8 +3,6 @@ module TmuxStatus
   module Segments
     class DecoratorContainer < Container
       def output
-        return super unless @options[:separator]
-
         index = 0
         count = segments.size
         segments_to_render = []
