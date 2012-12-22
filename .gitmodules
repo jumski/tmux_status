@@ -1,0 +1,3 @@
+[submodule "vendor/gmail"]
+	path = vendor/gmail
+	url = https://github.com/nu7hatch/gmail.git
