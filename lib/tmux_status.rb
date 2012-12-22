@@ -32,4 +32,5 @@ require 'tmux_status/segments/transfer'
 require 'tmux_status/segments/date_time'
 require 'tmux_status/segments/battery'
 require 'tmux_status/segments/memory'
+require 'tmux_status/segments/gmail'
 
