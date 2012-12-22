@@ -1,9 +1,4 @@
-# this trickery is needed because of bug in mail gem
-# mail gem sends its diagnostic output to STDOUT instea of err one
-old_STDOUT = STDOUT
-STDOUT = STDERR
 require 'gmail'
-STDOUT = old_STDOUT
 
 module TmuxStatus
   module Wrappers

@@ -1,8 +1,9 @@
+require 'tmux_status/wrappers/gmail'
 
 module TmuxStatus
   module Segments
     class Gmail < Segment
-      def initialize(options)
+      def initialize(options = {})
         @username = options.delete(:username)
         @password = options.delete(:password)
 
@@ -16,7 +17,7 @@ module TmuxStatus
       end
 
       def wrapper
-        Object.new
+         @wrapper ||= TmuxStatus::Wrappers::Gmail.new
       end
     end
   end
