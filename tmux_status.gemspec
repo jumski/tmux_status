@@ -26,5 +26,6 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'fivemat'
   gem.add_development_dependency 'guard-shell'
   gem.add_development_dependency 'timecop'
+  gem.add_development_dependency 'fakefs'
   # gem.add_development_dependency 'simplecov'
 end

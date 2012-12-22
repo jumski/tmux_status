@@ -8,7 +8,9 @@ STDOUT = old_STDOUT
 module TmuxStatus
   module Wrappers
     class Gmail
-      def initialize(username, password)
+      attr_reader :username, :password
+
+      def initialize(username = nil, password = nil)
         @username, @password = username, password
       end
 
@@ -21,7 +23,15 @@ module TmuxStatus
       end
 
       def gmail
-        @gmail ||= ::Gmail.connect(@username, @password)
+        @gmail ||= ::Gmail.connect(username, password)
+      end
+
+      def username
+        @username || ENV['GMAIL_USERNAME']
+      end
+
+      def password
+        @password || ENV['GMAIL_PASSWORD']
       end
     end
   end

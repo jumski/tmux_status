@@ -7,6 +7,7 @@ require 'rspec'
 require 'mocha/api'
 require 'pry'
 require 'timecop'
+require 'fakefs/safe'
 require File.join(current_dir, '../lib/tmux_status')
 
 Dir[File.join(current_dir, 'spec/support/**/*.rb')].each do |path|
