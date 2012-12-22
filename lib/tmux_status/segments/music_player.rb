@@ -1,4 +1,4 @@
-
+# encoding: utf-8
 module TmuxStatus
   module Segments
     class MusicPlayer < Segment
@@ -11,12 +11,17 @@ module TmuxStatus
 
         return symbol if wrapper.state == :stopped
 
-        "#{symbol}#{title}"
+        "#{symbol} #{title}"
       end
 
       def title
-        wrapper.title[0..15]
+        wrapper.title[0..(@options[:max_length]-1)]
       end
+
+      private
+        def default_options
+          { bg: 235, fg: 59, playing_symbol: '♪', max_length: 30 }
+        end
     end
   end
 end

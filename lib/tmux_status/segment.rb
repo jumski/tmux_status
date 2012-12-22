@@ -2,41 +2,66 @@
 module TmuxStatus
   class Segment
     def initialize(options = {})
-      @options = options
+      @options = default_options.merge(options)
     end
 
     def to_s
-      modes + cleared_output
+      return unless present?
+
+      string = "#{modes}#{cleared_output}"
+
+      if debug?
+        string = "[ name=#{name},fg=#{fg},bg=#{bg},output='#{output}' ]"
+      end
+
+      string
     end
 
     def modes
-      modes = ''
-      modes << mode(:bg)
-      modes << mode(:fg)
-      modes << mode(:bold)
-      modes
+      "#[bg=colour#{bg}]#[fg=colour#{fg}]#[bold=#{bold}]"
     end
 
-    def bg; @options[:bg] end
-    def fg; @options[:fg] end
+    def bg;   @options[:bg]   end
+    def fg;   @options[:fg]   end
+    def bold; @options[:bold] end
 
     def cleared_output
-      output.to_s.gsub(/\r\n/, ' ').gsub(/[\n\r]/, ' ').strip
+      output.to_s.gsub(/\r\n/, ' ').gsub(/[\n\r]/, ' ')
     end
 
     def output
       @options[:string]
     end
 
-    private
-      def mode(key)
-        if [:bg, :fg].include? key
-          prefix = 'colour'
-        else
-          prefix = nil
-        end
+    def direction
+      @options[:direction] || :left
+    end
 
-        "#[#{key}=#{prefix}#{@options[key]}]"
+    def left?
+      direction == :left
+    end
+
+    def right?
+      direction == :right
+    end
+
+    def default_options; {} end
+
+    def blank?
+      cleared_output.nil? || cleared_output.empty?
+    end
+
+    def present?
+      ! blank?
+    end
+
+    def name
+      self.class.name.split('::').last
+    end
+
+    private
+      def debug?
+        !true
       end
   end
 end

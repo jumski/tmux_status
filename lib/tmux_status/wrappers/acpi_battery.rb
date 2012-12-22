@@ -5,7 +5,7 @@ module TmuxStatus
       def percentage
         return 100 if charged?
 
-        output.scan(/(\d{1,2})%/).flatten.first.to_i
+        output.scan(/(\d{1,3})%/).flatten.first.to_i
       end
 
       def charged?

@@ -1,9 +1,12 @@
+# encoding: utf-8
 require 'date'
 
 module TmuxStatus
   module Segments
     class DateTime < Segment
-      DEFAULT_OPTIONS = { bg: 77, fg: 88, bold: false, format: '%H:%M %d-%m-%Y' }
+      DEFAULT_OPTIONS = {
+        bg: 16, fg: 237, bold: false, format: '%H:%M %d-%m-%Y'
+      }
 
       def initialize(options = {})
         @options = DEFAULT_OPTIONS.dup.merge(options)

@@ -2,22 +2,52 @@
 module TmuxStatus
   module Segments
     class Glue < Segment
-      def initialize(first, last)
-        @first, @last = first, last
+      ONE_COLOR_SEPARATORS =   { left: ' ⮃ ', right: ' ⮁ ' }
+      MULTI_COLOR_SEPARATORS = { left: ' ⮂█', right: '█⮀ ' }
+
+      def initialize(left, right, options = {})
+        @left, @right = left, right
+        super(options)
       end
 
-      def to_s
-        if @first.bg == @last.bg
-          separator = '⮁'
-          bg = @last.bg
-          fg = @first.fg
-        else
-          separator = '⮀'
-          bg = @last.bg
-          fg = @first.bg
-        end
+      def output
+        separator
+      end
 
-        " #[bg=colour#{bg}]#[fg=colour#{fg}]#{separator} "
+      def separator
+        if segments_have_same_bg?
+          ONE_COLOR_SEPARATORS[direction]
+        else
+          MULTI_COLOR_SEPARATORS[direction]
+        end
+      end
+
+      def fg
+        left? ? @right.bg : @left.bg
+      end
+
+      def bg
+        left? ? @left.bg : @right.bg
+      end
+
+      def segments_have_same_bg?
+        @left.bg == @right.bg
+      end
+
+      def segments
+        [@left, @right]
+      end
+
+      def left?
+        @options[:direction] == :left
+      end
+
+      def right?
+        @options[:direction] == :right
+      end
+
+      def default_options
+        super.merge(direction: :left)
       end
     end
   end

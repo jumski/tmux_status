@@ -8,6 +8,12 @@ describe TmuxStatus::Segment do
   its(:output) { should == string }
 
   describe '#to_s' do
+    it 'returns nil if #cleared_output is also empty' do
+      subject.stubs(cleared_output: '', modes: '[modes]')
+
+      expect(subject.to_s).to be_nil
+    end
+
     it 'concatenates #modes with #cleared_output' do
       subject.stubs(cleared_output: '[output]', modes: '[modes]')
 
@@ -27,12 +33,6 @@ describe TmuxStatus::Segment do
   describe '#cleared_output' do
     it 'changes any newlines to spaces in the #output' do
       subject.stubs(output: "this\rstring\nis\r\nawesome")
-
-      expect(subject.cleared_output).to eq('this string is awesome')
-    end
-
-    it 'strip whitespaces from #output' do
-      subject.stubs(output: ' this string is awesome ')
 
       expect(subject.cleared_output).to eq('this string is awesome')
     end

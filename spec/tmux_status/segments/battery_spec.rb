@@ -13,7 +13,7 @@ describe TmuxStatus::Segments::Battery do
       before { battery.stubs(discharging?: true) }
 
       it 'concatenates modes, symbol and percentage' do
-        output = "#{subject.modes}#{options[:discharging_symbol]}55%"
+        output = "#{options[:discharging_symbol]} 55%"
 
         expect(subject.output).to eq(output)
       end
