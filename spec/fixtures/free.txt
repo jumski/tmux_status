@@ -1,0 +1,4 @@
+             total       used       free     shared    buffers     cached
+Mem:       <%= total %>    <%= used %>    <%= free %>          0     417496     973540
+-/+ buffers/cache:    1780260    6301920
+Swap:      8594736      90016    8504720

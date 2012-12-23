@@ -23,6 +23,8 @@ module TmuxStatus
       end
 
       def fg
+        return @right.fg if segments_have_same_bg?
+
         left? ? @right.bg : @left.bg
       end
 

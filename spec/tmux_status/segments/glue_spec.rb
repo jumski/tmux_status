@@ -17,14 +17,14 @@ describe TmuxStatus::Segments::Glue do
     context "when direction left" do
       let(:direction) { :left }
 
-      its(:fg) { should == right.bg }
+      its(:fg) { should == right.fg }
       its(:bg) { should == left.bg }
     end
 
     context "when direction right" do
       let(:direction) { :right }
 
-      its(:fg) { should == left.bg }
+      its(:fg) { should == right.fg }
       its(:bg) { should == right.bg }
     end
 
