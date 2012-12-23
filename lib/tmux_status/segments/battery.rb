@@ -3,9 +3,14 @@ module TmuxStatus
   module Segments
     class Battery < Segment
       def output
-        return unless battery.discharging?
+        case
+        when battery.discharging?
+          "#{@options[:discharging_symbol]} #{battery.percentage}%"
+        when battery.charging?
+          return if battery.percentage > 80
 
-        "#{@options[:discharging_symbol]} #{battery.percentage}%"
+          "#{@options[:charging_symbol]} #{battery.percentage}%"
+        end
       end
 
       def battery
@@ -14,7 +19,13 @@ module TmuxStatus
 
       private
         def default_options
-          { bg: 0, fg: 82, bold: true, discharging_symbol: '⚡' }
+          {
+            bg: 0,
+            fg: 82,
+            bold: true,
+            discharging_symbol: '⚡',
+            charging_symbol: '↥'
+          }
         end
     end
   end
