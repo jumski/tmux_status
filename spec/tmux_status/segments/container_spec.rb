@@ -64,7 +64,7 @@ describe TmuxStatus::Segments::Container do
       end
     end
 
-    it 'when direction is right'
+    xit 'when direction is right'
   end
 
   describe '#visible_segments' do
