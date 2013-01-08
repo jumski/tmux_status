@@ -3,11 +3,11 @@ module TmuxStatus
   module Wrappers
     class Zeus
       def running?
-        output.split("\n").length > 1
+        output.split("\n").grep(/zeus slave/).length > 0
       end
 
       def output
-        %x[ ps ax | grep "zeus slave" | grep -v grep ]
+        %x[ ps ax ]
       end
     end
   end
