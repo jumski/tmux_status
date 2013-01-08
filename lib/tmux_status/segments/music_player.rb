@@ -20,7 +20,7 @@ module TmuxStatus
 
       private
         def default_options
-          { bg: 235, fg: 59, playing_symbol: '♪', max_length: 30 }
+          { bg: 235, fg: 59, playing_symbol: '♪', max_length: 16 }
         end
     end
   end
