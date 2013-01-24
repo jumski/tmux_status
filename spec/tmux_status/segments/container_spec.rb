@@ -86,18 +86,29 @@ describe TmuxStatus::Segments::Container do
       context "when direction is #{direction}" do
         before { @direction = direction }
 
-        it '#right_edge_glue returns glue last visible segment and container' do
-          glue = subject.right_edge_glue
+        describe '#right_edge_glue' do
+          let(:glue) { subject.right_edge_glue }
+          it 'returns glue last visible segment and container' do
+            expect(glue.segments.first).to eq(last)
+            expect(glue.segments.last).to eq(subject)
+          end
 
-          expect(glue.segments.first).to eq(last)
-          expect(glue.segments.last).to eq(subject)
+          it 'has proper direction set' do
+            expect(glue.direction).to eq(direction)
+          end
         end
 
-        it '#left_edge_glue returns glue of container and first visible segment' do
-          glue = subject.left_edge_glue
+        describe '#left_edge_glue' do
+          let(:glue) { subject.left_edge_glue }
 
-          expect(glue.segments.first).to eq(subject)
-          expect(glue.segments.last).to eq(first)
+          it 'returns glue of container and first visible segment' do
+            expect(glue.segments.first).to eq(subject)
+            expect(glue.segments.last).to eq(first)
+          end
+
+          it 'has proper direction set' do
+            expect(glue.direction).to eq(direction)
+          end
         end
       end
     end
