@@ -6,7 +6,6 @@ module TmuxStatus
     class Bitcurex
       class << self
         def ticker
-          p 'tick'
           get_json('ticker')
         end
 

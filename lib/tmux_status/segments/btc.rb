@@ -3,9 +3,9 @@ module TmuxStatus
   module Segments
     class Btc < Segment
       def output
-        avg = wrapper.ticker['last']
+        ticker = wrapper.ticker
 
-        "฿ #{avg}"
+        "฿ #{ticker['buy']} #{ticker['sell']}"
       end
 
       def wrapper
