@@ -26,7 +26,7 @@ module TmuxStatus
     def bold; @options[:bold] end
 
     def cleared_output
-      output.to_s.gsub(/\r\n/, ' ').gsub(/[\n\r]/, ' ')
+      @cleared_output ||= output.to_s.gsub(/\r\n/, ' ').gsub(/[\n\r]/, ' ')
     end
 
     def output
