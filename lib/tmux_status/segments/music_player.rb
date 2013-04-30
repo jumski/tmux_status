@@ -9,7 +9,7 @@ module TmuxStatus
       def output
         symbol = @options["#{wrapper.state}_symbol".to_sym]
 
-        return symbol if wrapper.state == :stopped
+        return symbol if [:stopped, :paused].include? wrapper.state
 
         "#{symbol} #{title}"
       end
@@ -20,7 +20,7 @@ module TmuxStatus
 
       private
         def default_options
-          { bg: 235, fg: 59, playing_symbol: '♪', max_length: 16 }
+          { bg: 235, fg: 59, playing_symbol: '♪', paused_symbol: '||', max_length: 16 }
         end
     end
   end
